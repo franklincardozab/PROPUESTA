@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to top right, #ffd6e0, #ffe9f0);
+  height: 100vh;
+  font-family: 'Comic Sans MS', cursive;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.video-text p {
+  font-size: 2em;
+  color: #d63384;
+  animation: textFade 3s ease-in-out infinite alternate;
+}
+
+.final-message {
+  display: none;
+  font-size: 3em;
+  color: #ff3366;
+  animation: heartBeat 1.5s infinite;
+}
+
+button#yesBtn {
+  margin-top: 20px;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  border: none;
+  background-color: #ff4d6d;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff4d6d;
+  transition: all 0.3s ease;
+}
+
+button#yesBtn:hover {
+  background-color: #ff3366;
+  transform: scale(1.1);
+}
+
+@keyframes textFade {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Corazones flotantes */
+.heart-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: pink;
+  transform: rotate(45deg);
+  animation: float 10s linear infinite;
+  opacity: 0.7;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: pink;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+@keyframes float {
+  0% {
+    bottom: -50px;
+    left: calc(100% * var(--random-x));
+  }
+  100% {
+    bottom: 100%;
+    left: calc(100% * var(--random-x) + 20px);
+  }
+}
+/* Botón de inicio */
+.start-button {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.start-button button {
+  font-size: 1.5em;
+  padding: 20px 40px;
+  background-color: #ff4d6d;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff4d6d;
+}

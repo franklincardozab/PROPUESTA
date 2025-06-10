@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Una Sorpresa para Ti</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="heart-container"></div>
+
+  <div class="container">
+    <div class="video-text" id="videoText">
+      <p>Hola... 😳</p>
+    </div>
+    <div class="final-message" id="finalMessage">
+      <p>¿Puedo ser tu novio? ❤️</p>
+      <button id="yesBtn">Sí ❤️</button>
+      <button id="replayBtn">Volver a leer</button>
+    </div>
+  </div>
+
+  <div class="start-button">
+    <button onclick="iniciarExperiencia()">Toca para comenzar 🎶</button>
+  </div>
+
+  <audio controls>
+    <source src="audio.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
