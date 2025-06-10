@@ -64,7 +64,7 @@ function showNextMessage() {
   if (index < messages.length) {
     videoText.innerHTML = `<p>${messages[index]}</p>`;
     index++;
-    timeoutId = setTimeout(showNextMessage, 5000);
+    timeoutId = setTimeout(showNextMessage, 11000);
   } else {
     videoText.style.display = "none";
     finalMessage.innerHTML = `
@@ -102,7 +102,7 @@ function generateHearts() {
     heart.classList.add('heart');
     heart.style.setProperty('--random-x', Math.random());
     heart.style.left = `${Math.random() * 100}%`;
-    heart.style.animationDuration = `${5 + Math.random() * 10}s`;
+    heart.style.animationDuration = `${5 + Math.random() * 5}s`;
     heart.style.opacity = `${0.5 + Math.random() * 0.5}`;
     container.appendChild(heart);
   }
@@ -126,8 +126,8 @@ window.onload = () => {
   generateHearts();
 
   const music = document.getElementById("backgroundMusic");
+  music.loop = true;
 
-  // Mostrar un botón para activar el sonido si es necesario
   const musicBtn = document.createElement("button");
   musicBtn.innerText = "Haz clic aquí para activar la música 🎵";
   musicBtn.style.position = "fixed";
@@ -147,7 +147,7 @@ window.onload = () => {
 
   musicBtn.addEventListener("click", () => {
     music.play().then(() => {
-      musicBtn.remove(); // Oculta el botón después de que suene
+      musicBtn.remove();
     }).catch((e) => {
       console.error("Error al reproducir música:", e);
     });
